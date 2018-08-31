@@ -23,8 +23,13 @@ should have a column that stores primary key from a parent table, which is a for
 
 */
 
+DROP TABLE IF EXISTS actors CASCADE;
+DROP TABLE IF EXISTS directors CASCADE;
+DROP TABLE IF EXISTS movies CASCADE;
+DROP TABLE IF EXISTS actors_movies;
+
 CREATE TABLE actors (
-  id BIGINT,
+  id SERIAL,
   first_name VARCHAR(255) NOT NULL,
   last_name VARCHAR(255) NOT NULL,
   birthday DATE NOT NULL,
@@ -35,7 +40,7 @@ CREATE TABLE actors (
 );
 
 CREATE TABLE directors (
-  id BIGINT,
+  id SERIAL,
   first_name VARCHAR(255) NOT NULL,
   last_name VARCHAR(255) NOT NULL,
   birthday DATE NOT NULL,
@@ -46,7 +51,7 @@ CREATE TABLE directors (
 );
 
 CREATE TABLE movies (
-  id BIGINT,
+  id SERIAL,
   name VARCHAR(255) NOT NULL,
   year_of_creation SMALLINT NOT NULL,
   genre VARCHAR(255) NOT NULL,
@@ -63,6 +68,4 @@ CREATE TABLE actors_movies (
   CONSTRAINT actors_movies_movies_FK FOREIGN KEY (movies_id) REFERENCES movies
 );
 
--- INSERT INTO actors (first_name, last_name, birthday, gender, instagram) VALUES ('Tim', 'Robbins', '1958-10-16', 'm', 'instagram.com/tim');
--- INSERT INTO actors (first_name, last_name, birthday, gender, instagram) VALUES ('Morgan', 'Freeman', '1937-06-01', 'm', null);
 
