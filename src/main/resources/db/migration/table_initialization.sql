@@ -64,7 +64,7 @@ CREATE TABLE actors_movies (
   actors_id BIGINT,
   movies_id BIGINT,
   CONSTRAINT actors_movies_PK PRIMARY KEY (actors_id, movies_id),
-  CONSTRAINT actors_movies_actors_FK FOREIGN KEY (actors_id) REFERENCES actors,
+  CONSTRAINT actors_movies_actors_FK FOREIGN KEY (actors_id) REFERENCES actors ON DELETE CASCADE,
   CONSTRAINT actors_movies_movies_FK FOREIGN KEY (movies_id) REFERENCES movies
 );
 
