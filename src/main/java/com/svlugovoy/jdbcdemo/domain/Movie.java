@@ -10,7 +10,7 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode(of = "id")
-@ToString
+@ToString(exclude = {"director", "actors"})
 @Builder
 public class Movie {
     private Long id;
